@@ -1,0 +1,128 @@
+/* src/App.css */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f5f5f5;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1, h2 {
+  color: #333;
+}
+
+.container {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 50px;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+input[type="text"], input[type="email"], input[type="password"], input[type="file"] {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+button {
+  width: 100%;
+  padding: 14px 20px;
+  margin: 8px 0;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+img {
+  display: block;
+  margin: 20px auto;
+  max-width: 150px;
+  border-radius: 50%;
+}
+
+.error {
+  color: red;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+label {
+  margin-top: 10px;
+  display: block;
+  font-size: 16px;
+}
+
+.detail-container {
+  padding: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.detail-info p {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.profile-image-container {
+  margin-bottom: 20px;
+}
+
+.profile-image {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.update-section {
+  margin-top: 20px;
+}
+
+.update-section input[type="file"] {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.update-section button {
+  padding: 10px 15px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.update-section button:hover {
+  background-color: #45a049;
+}
+
+/*center content*/
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
