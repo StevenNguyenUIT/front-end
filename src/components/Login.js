@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; // useNavigate hook for redirection
+import { API_BASE_URL } from '../api';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -15,7 +16,8 @@ const Login = () => {
     setError(null);
 
     try {
-      const response = await fetch('https://hmeeszhorb.execute-api.us-east-1.amazonaws.com/login', {
+      // const response = await fetch('https://hmeeszhorb.execute-api.us-east-1.amazonaws.com/login', {
+      const response = await fetch(`${API_BASE_URL}/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

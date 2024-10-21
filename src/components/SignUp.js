@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { API_BASE_URL } from '../api';
 
 const SignUp = () => {
   const [email, setEmail] = useState('');
@@ -30,7 +31,9 @@ const SignUp = () => {
         const filename = encodeURIComponent(file.name);
         const contentType = file.type;
         // Step 1: Send user data to the backend to create the account and get the presigned URL
-      const response = await axios.post('https://77u93zbgqi.execute-api.us-east-1.amazonaws.com/signup', {
+        
+      // const response = await axios.post('https://77u93zbgqi.execute-api.us-east-1.amazonaws.com/signup', {
+        const response = await axios.post(`${API_BASE_URL}/signup`, {
         email,
         password,
         name,

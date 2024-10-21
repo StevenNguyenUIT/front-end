@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { API_BASE_URL } from '../api';
+
 
 
 function Details() {
@@ -23,7 +25,8 @@ function Details() {
     // }
 
     try {
-      const response = await fetch(`https://77u93zbgqi.execute-api.us-east-1.amazonaws.com/getUser?email=${email}`, {
+      // const response = await fetch(`https://77u93zbgqi.execute-api.us-east-1.amazonaws.com/getUser?email=${email}`, {
+      const response = await fetch(`${API_BASE_URL}/getuser?email=${email}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -65,7 +68,8 @@ function Details() {
 
     try {
       // Get pre-signed URL from backend for the upload
-      const response = await fetch('https://u2zyfyte3c.execute-api.us-east-1.amazonaws.com/upload', {
+      // const response = await fetch('https://u2zyfyte3c.execute-api.us-east-1.amazonaws.com/upload', {
+      const response = await fetch(`${API_BASE_URL}/uploadimage`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -92,11 +96,9 @@ function Details() {
         });
 
         if (uploadResponse.ok) {
-          alert('Profile image uploaded successfully!');
-          // Now update the user's profileImage in DynamoDB
-        //   await updateProfileImage();
-        setLoading(true); // Set loading to true to show loading state
-        fetchUserDetails(); // Fetch user details again to update profileImage
+            alert('Profile image uploaded successfully!');
+            setLoading(true); // Set loading to true to show loading state
+            fetchUserDetails(); // Fetch user details again to update profileImage
         } else {
           alert('Failed to upload image.');
         }
@@ -106,33 +108,6 @@ function Details() {
     } catch (error) {
       console.error('Error during upload:', error);
       alert('Error during upload. Please try again.');
-    }
-  };
-
-  // Update profileImage in DynamoDB after successful image upload
-  const updateProfileImage = async () => {
-    try {
-      const response = await fetch('https://u2zyfyte3c.execute-api.us-east-1.amazonaws.com/upload', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          email: user.email,
-          profileImage: `https://final-auth-app-backend.s3.amazonaws.com/${selectedFile.name}`,
-        }),
-      });
-
-      const data = await response.json();
-
-      if (response.ok) {
-        setUser((prev) => ({ ...prev, profileImage: data.updatedProfileImage }));
-        alert('Profile image updated successfully!');
-      } else {
-        alert('Failed to update profile image.');
-      }
-    } catch (error) {
-      console.error('Error updating profile image:', error);
     }
   };
 

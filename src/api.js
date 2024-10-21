@@ -2,7 +2,7 @@
 import axios from 'axios';
 
 // Set the base URL for the API Gateway endpoint
-const API_BASE_URL = 'https://m7raqnak7a.execute-api.us-east-1.amazonaws.com';
+export const API_BASE_URL = 'https://ddw3ej9lh8.execute-api.us-east-1.amazonaws.com/prod';
 
 export const signUp = async (email, password, name, profileImage) => {
   const response = await axios.post(`${API_BASE_URL}/signup`, {
